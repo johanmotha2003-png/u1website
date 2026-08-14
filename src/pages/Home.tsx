@@ -100,7 +100,7 @@ export default function Home({ navigate }: Props) {
               ['Established 2003', '22+ Years in Business'],
               ['Fast Turnaround', 'Urgent Orders Welcome'],
               ['Pickup Available', 'Padi, Chennai'],
-              ['10 Services', 'End-to-End Printing'],
+              ['5 Services', 'End-to-End Printing'],
             ].map(([title, sub], i, arr) => (
               <div key={i} style={{
                 padding: '20px 24px', display: 'flex', alignItems: 'center', gap: 10, flex: 1, minWidth: 160,

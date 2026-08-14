@@ -224,7 +224,7 @@ export default function Quote() {
         <div style={{ marginTop: 56, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 2, background: '#E8D5ED', borderTop: `3px solid ${ACCENT}` }}>
           {[
             { label: 'Phone / WhatsApp', value: 'Call or message us', sub: 'Mon–Sat, 9AM–8PM' },
-            { label: 'Pickup', value: 'Padi, Chennai', sub: '15/10, North Mada 3rd St' },
+            { label: 'Pickup', value: 'Padi, Chennai', sub: '39/104, Moorthy Nagar Main Rd' },
             { label: 'Payment', value: 'Cash · UPI · Bank Transfer', sub: 'Cheque accepted for B2B' },
           ].map((item, i) => (
             <div key={i} style={{ background: '#fff', padding: '24px 20px' }}>

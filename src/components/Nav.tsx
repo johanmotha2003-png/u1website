@@ -34,7 +34,7 @@ export default function Nav({ current, navigate }: NavProps) {
         >
           <img
             src={headerImage}
-            alt="A-1 Prints & Forms — industrial print carriage"
+            alt="A1 Prints & Forms — industrial print carriage"
             style={{
               width: '100%',
               height: 'auto',
@@ -159,7 +159,7 @@ export default function Nav({ current, navigate }: NavProps) {
                 padding: '14px 0',
               }}
             >
-              A-1 Prints &amp; Forms
+              A1 Prints &amp; Forms
             </button>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}

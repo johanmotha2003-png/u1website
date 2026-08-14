@@ -26,10 +26,10 @@ export default function Footer({ navigate }: FooterProps) {
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
               <div style={{ width: 38, height: 38, background: `linear-gradient(135deg, #5B1A6B, ${ACCENT})`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <span style={{ color: '#fff', fontFamily: "'Manrope', sans-serif", fontWeight: 800, fontSize: 10, letterSpacing: '0.05em' }}>A-1</span>
+                <span style={{ color: '#fff', fontFamily: "'Manrope', sans-serif", fontWeight: 800, fontSize: 10, letterSpacing: '0.05em' }}>A</span>
               </div>
               <span style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 700, fontSize: 15, color: '#fff' }}>
-                A-1 Prints & Forms
+                A1 Prints & Forms
               </span>
             </div>
             <p style={{ fontSize: 13, lineHeight: 1.75, color: 'rgba(255,255,255,0.55)', maxWidth: 240, fontWeight: 300 }}>
@@ -90,9 +90,9 @@ export default function Footer({ navigate }: FooterProps) {
             </h4>
             <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', lineHeight: 1.85, fontWeight: 300 }}>
               <p style={{ marginBottom: 12 }}>
-                15/10, Behind Sivan Temple,<br />
-                North Mada 3rd Street,<br />
-                Padi, Chennai – 600050
+                39/104, Moorthy Nagar Main Rd,<br />
+                Satyavathi Nagar, Padi,<br />
+                Chennai – 600050
               </p>
               <p>Mon–Sat: 9:00 AM – 8:00 PM</p>
             </div>

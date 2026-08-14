@@ -80,7 +80,7 @@ export default function Contact({ navigate }: Props) {
             <div style={{ background: '#E8D5ED', aspectRatio: '16/9', position: 'relative', overflow: 'hidden', marginBottom: 16 }}>
               <iframe
                 title="A1 Prints & Forms Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3885.8!2d80.1823!3d13.1200!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDA3JzEyLjAiTiA4MMKwMTAnNTYuMyJF!5e0!3m2!1sen!2sin!4v1"
+                src="https://maps.google.com/maps?q=A1%20Prints%20and%20forms,%2039/104,%20Moorthy%20Nagar%20Main%20Rd,%20Satyavathi%20Nagar,%20Padi,%20Chennai,%20Greater%20Chennai,%20Tamil%20Nadu%20600050&t=&z=16&ie=UTF8&iwloc=&output=embed"
                 width="100%" height="100%"
                 style={{ border: 0, position: 'absolute', inset: 0 }}
                 allowFullScreen loading="lazy"
@@ -91,7 +91,7 @@ export default function Contact({ navigate }: Props) {
             {/* Open in Maps Button */}
             <div style={{ display: 'flex', gap: 12, marginBottom: 32 }}>
               <a
-                href="https://maps.app.goo.gl/f9pdB7SxcVFkNSe16?g_st=aw"
+                href="https://www.google.com/maps/search/?api=1&query=A1+Prints+and+forms,+39/104,+Moorthy+Nagar+Main+Rd,+Satyavathi+Nagar,+Padi,+Chennai,+Tamil+Nadu+600050"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -124,7 +124,7 @@ export default function Contact({ navigate }: Props) {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
               {[
-                { icon: '◉', title: 'Address', lines: ['15/10, Behind Sivan Temple,', 'North Mada 3rd Street,', 'Padi, Chennai – 600050'] },
+                { icon: '◉', title: 'Address', lines: ['39/104, Moorthy Nagar Main Rd,', 'Satyavathi Nagar, Padi,', 'Chennai, Tamil Nadu – 600050'] },
                 { icon: '⬡', title: 'Working Hours', lines: ['Monday – Saturday', '9:00 AM – 8:00 PM'] },
               ].map((item, i) => (
                 <div key={i} style={{ display: 'flex', gap: 16 }}>
@@ -136,7 +136,7 @@ export default function Contact({ navigate }: Props) {
                     {item.lines.map((line, j) => <div key={j} style={{ fontWeight: 300, fontSize: 13, color: '#767676', lineHeight: 1.75 }}>{line}</div>)}
                     {item.title === 'Address' && (
                       <a
-                        href="https://maps.app.goo.gl/f9pdB7SxcVFkNSe16?g_st=aw"
+                        href="https://www.google.com/maps/search/?api=1&query=A1+Prints+and+forms,+39/104,+Moorthy+Nagar+Main+Rd,+Satyavathi+Nagar,+Padi,+Chennai,+Tamil+Nadu+600050"
                         target="_blank"
                         rel="noopener noreferrer"
                         style={{
