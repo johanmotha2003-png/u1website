@@ -18,12 +18,21 @@ const ACCENT = '#7F2394'
 
 export default function Nav({ current, navigate }: NavProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [aspectRatio, setAspectRatio] = useState<number | null>(null)
+
+  const handleImageLoad = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    const img = e.currentTarget
+    if (img.naturalWidth && img.naturalHeight) {
+      setAspectRatio(img.naturalWidth / img.naturalHeight)
+    }
+  }
 
   return (
     <>
       <header style={{ fontFamily: "'Manrope', sans-serif" }}>
         {/* ── Header image banner ── */}
         <div
+          className="header-img-container"
           style={{
             width: '100%',
             background: ACCENT,
@@ -33,7 +42,9 @@ export default function Nav({ current, navigate }: NavProps) {
           onClick={() => navigate('home')}
         >
           <img
+            className="header-img"
             src={headerImage}
+            onLoad={handleImageLoad}
             alt="A1 Prints & Forms — industrial print carriage"
             style={{
               width: '100%',
@@ -42,6 +53,7 @@ export default function Nav({ current, navigate }: NavProps) {
               objectFit: 'cover',
               maxHeight: 180,
               objectPosition: 'center center',
+              ...({ '--aspect-ratio': aspectRatio } as React.CSSProperties),
             }}
           />
         </div>
@@ -219,6 +231,13 @@ export default function Nav({ current, navigate }: NavProps) {
         @media (max-width: 800px) {
           .desktop-nav { display: none !important; }
           .mobile-nav { display: flex !important; }
+          
+          .header-img-container {
+            overflow: hidden !important;
+          }
+          .header-img {
+            margin-bottom: calc(-20% / var(--aspect-ratio, 2.5)) !important;
+          }
         }
       `}</style>
     </>
