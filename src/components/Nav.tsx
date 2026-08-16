@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { Page } from '../App'
-import headerImage from '../imports/u1_design.png'
+import headerImage from '../imports/ezzz.png'
 
 interface NavProps {
   current: Page

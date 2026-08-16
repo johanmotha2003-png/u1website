@@ -62,10 +62,10 @@ export default function Footer({ navigate }: FooterProps) {
                 {p.label}
               </button>
             ))}
-          </div>
+          </div> 
 
           {/* Services */}
-          <div>
+          <div> 
             <h4 style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 600, fontSize: 11, color: ACCENT, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 20 }}>
               Services
             </h4>
