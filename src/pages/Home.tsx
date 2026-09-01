@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import type { Page } from '../App'
 
 interface Props { navigate: (p: Page) => void }
@@ -15,7 +16,6 @@ const IMGS = {
   papers: 'https://images.unsplash.com/photo-1422036306541-00138cae4dbc?w=900&h=600&fit=crop&auto=format',
 }
 
-
 const industries = [
   { name: 'Manufacturing', icon: '⚙', desc: 'Forms, safety labels, inspection tags, and compliance documentation.' },
   { name: 'Automobile', icon: '◉', desc: 'Parts labels, service manuals, warranty cards, and dealer stationery.' },
@@ -30,6 +30,37 @@ const why = [
   { stat: '100%', label: 'Reliable Quality', desc: 'Consistent output across every batch, every order.' },
   { stat: 'Fast', label: 'Turnaround', desc: 'On-time delivery for urgent and scheduled orders alike.' },
   { stat: '∞', label: 'Custom Solutions', desc: 'Every specification accommodated, from 10 to 10,000 units.' },
+]
+
+const faqs = [
+  {
+    q: '1. What printing services does A1 Prints & Forms provide?',
+    a: 'We provide screen printing, digital printing, offset printing, ferrule printing, stickers & labels and advertising and display board printing.'
+  },
+  {
+    q: '2. Where is A1 Prints & Forms located?',
+    a: 'A1 Prints & Forms is based in Padi, Chennai, and serves customers across Tamil Nadu, with customers in Mysore and other locations as well.'
+  },
+  {
+    q: '3. Do you provide customised printing solutions?',
+    a: 'Yes. We handle customised printing requirements based on the application, material, quantity and specifications of each customer.'
+  },
+  {
+    q: '4. Do you provide everyday and business printing requirements?',
+    a: 'Yes. We provide a wide range of everyday, personal and business printing, including visiting cards, invitations, letter pads, registers, bill books, forms, certificates, pamphlets, handbills, stickers and other customised printing requirements.'
+  },
+  {
+    q: '5. Do you provide industrial printing?',
+    a: 'Yes. Our services include applications such as ferrule printing, fuse box printing, polymer and synthetic labels, and customised screen printing for industrial requirements.'
+  },
+  {
+    q: '6. Do you provide advertising and sign board printing?',
+    a: 'Yes. We provide sign boards, name boards, acrylic boards, foam board printing, flex banners and related display solutions.'
+  },
+  {
+    q: '7. How long has A1 Prints & Forms been in the printing industry?',
+    a: 'A1 Prints & Forms has over 22 years of experience in the printing industry, serving business, institutional and industrial requirements since 2003.'
+  }
 ]
 
 const S: Record<string, React.CSSProperties> = {
@@ -52,6 +83,9 @@ const S: Record<string, React.CSSProperties> = {
 }
 
 export default function Home({ navigate }: Props) {
+  const [hoveredFaq, setHoveredFaq] = useState<number | null>(null)
+  const [openFaq, setOpenFaq] = useState<number | null>(null)
+
   return (
     <div style={{ background: '#fff' }}>
 
@@ -66,15 +100,25 @@ export default function Home({ navigate }: Props) {
         <div style={{ position: 'absolute', left: 0, top: 0, width: 4, height: '100%', background: ACCENT }} />
 
         <div style={{ position: 'relative', ...S.section, paddingTop: 80, paddingBottom: 80 }}>
-          <div style={{ maxWidth: 640 }}>
+          <div style={{ maxWidth: 660 }}>
             <h1 style={{
               fontFamily: "'Manrope', sans-serif", fontWeight: 700,
-              fontSize: 'clamp(30px, 5.5vw, 60px)', color: '#fff', lineHeight: 1.1, marginBottom: 24,
+              fontSize: 'clamp(30px, 5.5vw, 60px)', color: '#fff', lineHeight: 1.1, marginBottom: 16,
             }}>
               Printing Solutions Built on Quality, Trusted Since 2003.
             </h1>
-            <p style={{ ...S.body, color: 'rgba(255,255,255,0.72)', fontSize: 16, maxWidth: 500, marginBottom: 40 }}>
-              A complete printing solutions provider serving manufacturing, corporate, and retail clients across Chennai with precision, speed, and consistency.
+            <div style={{
+              fontFamily: "'Manrope', sans-serif",
+              fontSize: 'clamp(18px, 2.5vw, 22px)',
+              fontWeight: 600,
+              color: '#fff',
+              letterSpacing: '0.02em',
+              marginBottom: 24,
+            }}>
+              Your Vision. Our Print.
+            </div>
+            <p style={{ ...S.body, color: 'rgba(255,255,255,0.82)', fontSize: 16, maxWidth: 580, marginBottom: 40, lineHeight: 1.75 }}>
+              With 22+ years of experience, A1 Prints & Forms delivers high-quality printing solutions in Chennai and across Tamil Nadu, combining proven expertise, precision and reliable execution to meet the needs of businesses, institutions, industries and individuals.
             </p>
             <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
               <button onClick={() => navigate('quote')} style={{ ...S.btn, fontSize: 15, padding: '15px 34px' }}
@@ -116,9 +160,6 @@ export default function Home({ navigate }: Props) {
           </div>
         </div>
       </section>
-
-
-
 
       {/* ── Craftsmanship ── */}
       <section style={{ padding: '96px 0', background: '#1F0A2E', position: 'relative', overflow: 'hidden' }}>
@@ -216,6 +257,92 @@ export default function Home({ navigate }: Props) {
         </div>
       </section>
 
+      {/* ── FAQs Section (Hover to Expand Answer) ── */}
+      <section style={{ padding: '96px 0', background: '#fff', borderTop: '1px solid #E8D5ED' }}>
+        <div style={S.section}>
+          <div style={{ textAlign: 'center', marginBottom: 52 }}>
+            <h2 style={{ ...S.h2, marginBottom: 0 }}>Frequently Asked Questions</h2>
+          </div>
+
+          <div style={{ maxWidth: 900, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 16 }}>
+            {faqs.map((faq, i) => {
+              const isExpanded = hoveredFaq === i || openFaq === i
+              return (
+                <div
+                  key={i}
+                  onMouseEnter={() => setHoveredFaq(i)}
+                  onMouseLeave={() => setHoveredFaq(null)}
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  style={{
+                    background: isExpanded ? '#F8EDF9' : '#fafafa',
+                    border: `1px solid ${isExpanded ? '#C894D4' : '#E8D5ED'}`,
+                    borderLeft: `4px solid ${isExpanded ? ACCENT : '#D0A8DC'}`,
+                    padding: '20px 24px',
+                    borderRadius: 4,
+                    cursor: 'pointer',
+                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                    boxShadow: isExpanded ? '0 4px 20px rgba(127, 35, 148, 0.08)' : 'none',
+                  }}
+                >
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16 }}>
+                    <h3 style={{
+                      fontFamily: "'Manrope', sans-serif",
+                      fontWeight: 600,
+                      fontSize: 16,
+                      color: isExpanded ? ACCENT : DEEP,
+                      margin: 0,
+                      transition: 'color 0.2s ease',
+                      lineHeight: 1.4,
+                    }}>
+                      {faq.q}
+                    </h3>
+                    <div style={{
+                      width: 28,
+                      height: 28,
+                      borderRadius: '50%',
+                      background: isExpanded ? ACCENT : 'rgba(127, 35, 148, 0.1)',
+                      color: isExpanded ? '#fff' : ACCENT,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0,
+                      fontSize: 14,
+                      fontWeight: 'bold',
+                      transition: 'all 0.3s ease',
+                      transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)',
+                    }}>
+                      ↓
+                    </div>
+                  </div>
+
+                  <div style={{
+                    display: 'grid',
+                    gridTemplateRows: isExpanded ? '1fr' : '0fr',
+                    transition: 'grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease',
+                    opacity: isExpanded ? 1 : 0,
+                  }}>
+                    <div style={{ overflow: 'hidden' }}>
+                      <div style={{
+                        paddingTop: 16,
+                        marginTop: 12,
+                        borderTop: `1px solid ${isExpanded ? 'rgba(127,35,148,0.15)' : 'transparent'}`,
+                        fontFamily: "'Manrope', sans-serif",
+                        fontWeight: 400,
+                        color: '#4A4A4A',
+                        fontSize: 15,
+                        lineHeight: 1.7,
+                      }}>
+                        {faq.a}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* ── CTA ── */}
       <section style={{ padding: '96px 0', background: DEEP, position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', right: -100, top: -100, width: 500, height: 500, borderRadius: '50%', border: `1px solid rgba(127,35,148,0.2)` }} />
@@ -236,3 +363,4 @@ export default function Home({ navigate }: Props) {
     </div>
   )
 }
+
